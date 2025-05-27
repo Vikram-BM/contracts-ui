@@ -119,4 +119,4 @@ The application has been tested and verified to:
 
 ## Output Screenshots
 
-image.png
+![image](https://github.com/user-attachments/assets/13833a25-a1cd-4ef5-b70c-d3b32d13af42)
