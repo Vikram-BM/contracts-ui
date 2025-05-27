@@ -26,4 +26,18 @@ export default function TextWithMarks({ node }) {
     
     if (bold) content = <strong>{content}</strong>
     if (italic) content = <em>{content}</em>
-    if (underline) content = <u>{content}</u
+    if (underline) content = <u>{content}</u>
+    return <>{content}</>
+  }
+  
+  // Handle children
+  if (children) {
+    let content = children.map((child, i) => <TextWithMarks key={i} node={child} />)
+    if (bold) content = <strong>{content}</strong>
+    if (italic) content = <em>{content}</em>
+    if (underline) content = <u>{content}</u>
+    return <>{content}</>
+  }
+  
+  return null
+}

@@ -47,4 +47,16 @@ export default function BlockRenderer({ node }) {
       return <div className="block">{children?.map((c, i) => <BlockRenderer key={i} node={c} />)}</div>
     case 'doc':
       // Document root
-      return <>{children?.map((c, i) => <BlockRenderer key
+      return <>{children?.map((c, i) => <BlockRenderer key={i} node={c} />)}</>
+    default:
+      // Fallback for unknown types - render children if they exist
+      if (children) {
+        return <>{children.map((c, i) => <BlockRenderer key={i} node={c} />)}</>
+      }
+      // If it's a text node without explicit text property
+      if (typeof node === 'string') {
+        return <>{node}</>
+      }
+      return null
+  }
+}
