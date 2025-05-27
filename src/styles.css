@@ -16,6 +16,13 @@ body {
   color: #333;
 }
 
+.loading {
+  text-align: center;
+  padding: 2em;
+  color: #666;
+  font-style: italic;
+}
+
 h1 { 
   font-size: 2.5em; 
   margin-bottom: 0.5em; 
@@ -40,11 +47,22 @@ ul {
   padding-left: 0;
 }
 
+ol {
+  list-style-type: decimal;
+  margin: 0.5em 0 0.5em 1.5em;
+  padding-left: 0;
+}
+
 li {
   margin: 0.3em 0;
   line-height: 1.5;
 }
 
+.list-item-content {
+  display: inline;
+}
+
+/* Base clause styling */
 .clause { 
   margin: 1.5em 0; 
   padding-left: 2em; 
@@ -62,28 +80,118 @@ li {
   margin: 0;
 }
 
+/* Hierarchical clause indentation */
+/* Level 0 (top-level): 1., 2., 3., etc. */
+.clause[data-depth="0"] {
+  padding-left: 2em;
+}
+
+/* Level 1 (sub-clauses): (a), (b), (c), etc. */
+.clause[data-depth="1"] {
+  padding-left: 3em;
+  margin: 0.8em 0;
+}
+
+.clause[data-depth="1"] .clause-number {
+  left: 1em;
+}
+
+/* Level 2 (sub-sub-clauses): (i), (ii), (iii), etc. */
+.clause[data-depth="2"] {
+  padding-left: 4em;
+  margin: 0.6em 0;
+}
+
+.clause[data-depth="2"] .clause-number {
+  left: 2em;
+}
+
+/* Level 3+ (deeper nesting) */
+.clause[data-depth="3"] {
+  padding-left: 5em;
+  margin: 0.4em 0;
+}
+
+.clause[data-depth="3"] .clause-number {
+  left: 3em;
+}
+
+/* Enhanced mention styling with interaction support */
 .mention { 
   padding: 2px 6px; 
   border-radius: 3px;
   font-weight: 500;
   color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.mention:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mention:focus {
+  outline: 2px solid #007acc;
+  outline-offset: 1px;
+}
+
+.mention:active {
+  transform: translateY(0);
+}
+
+/* Accessibility improvements */
+.mention[role="button"] {
+  user-select: none;
 }
 
 .block {
   margin: 1em 0;
 }
 
-/* Nested clause styling */
-.clause .clause {
-  margin: 0.8em 0;
-  padding-left: 1.5em;
+/* Handle inline block elements */
+.inline-ul,
+.inline-ol,
+.inline-div,
+.inline-block {
+  display: inline;
 }
 
 /* Adjust spacing for lists inside clauses */
-.clause ul {
+.clause ul,
+.clause ol {
   margin: 0.5em 0;
 }
 
 .clause li {
   margin: 0.2em 0;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  .clause {
+    padding-left: 1.5em;
+  }
+  
+  .clause[data-depth="1"] {
+    padding-left: 2.5em;
+  }
+  
+  .clause[data-depth="2"] {
+    padding-left: 3.5em;
+  }
+  
+  .clause[data-depth="3"] {
+    padding-left: 4.5em;
+  }
 }

@@ -1,79 +1,81 @@
 # Contract UI - Service Agreement Renderer
 
-A React application that renders contract documents from JSON data with proper formatting, clause numbering, and mention highlighting.
+This React application dynamically renders structured contract documents from JSON data. It supports formatted text, hierarchical clause numbering, and highlighted mentions, ensuring a clean and professional presentation.
 
-## 🚀 Features
+## Features
 
-- **Dynamic Document Rendering**: Parses JSON structure to render HTML documents
-- **Global Clause Numbering**: Continuous numbering across the entire document
-- **Text Formatting**: Support for bold, italic, and underline text
-- **Mention Highlighting**: Colored background highlights for variable text
-- **Responsive Design**: Clean, professional layout that works on all devices
-- **Nested Structures**: Proper handling of nested clauses and lists
+* **Dynamic Document Rendering**: Converts structured JSON data into properly formatted HTML documents.
+* **Hierarchical Clause Numbering**: Implements continuous numbering throughout documents with nested clause structures (e.g., 1, 2, 3 → (a), (b), (c) → (i), (ii), (iii)).
+* **Text Formatting**: Supports bold, italic, and underline styles.
+* **Mention Highlighting**: Displays variable text with customizable colored backgrounds.
+* **Responsive Design**: Ensures readability and usability on all devices.
+* **Nested Structures Handling**: Correctly manages nested clauses and lists.
 
-## 📋 Requirements Met
+## Requirements Met
 
-✅ **Clause Rendering**: Numbered clauses with proper indentation  
-✅ **Mention Highlighting**: Colored backgrounds for variable text  
-✅ **Text Formatting**: Bold, italic, underline support  
-✅ **Global Numbering**: Continuous clause numbering throughout document  
-✅ **Professional Styling**: Matches reference design  
-✅ **Extensible Architecture**: Easy to test and extend  
+* Clause rendering with accurate hierarchical numbering and indentation
+* Highlighting of mentions with dynamic background colors
+* Full support for bold, italic, and underline formatting
+* Professional, consistent styling matching the provided design
+* Modular, extensible architecture enabling easy future enhancements
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 
-1. **Clone or download the project**
-2. **Install dependencies**:
+1. Clone or download the repository.
+2. Navigate to the project directory and install dependencies:
+
    ```bash
    npm install
    ```
-3. **Start development server**:
+3. Launch the development server:
+
    ```bash
    npm start
    ```
-4. **Open browser** to `http://localhost:3000`
+4. Open your browser to `http://localhost:3000`.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
 ├── components/
-│   ├── BlockRenderer.js    # Main component for rendering document blocks
-│   ├── TextWithMarks.js    # Handles text formatting and mentions
-│   ├── ClauseRenderer.js   # Renders numbered clauses
-│   └── Mention.js          # Renders highlighted mention text
+│   ├── BlockRenderer.js    // Main component for rendering document blocks
+│   ├── TextWithMarks.js    // Handles text formatting and mentions
+│   ├── ClauseRenderer.js   // Manages rendering and numbering of clauses
+│   └── Mention.js          // Displays mentions with highlighting
 ├── data/
-│   └── input.json          # Contract document data
-├── App.js                  # Main application component
-├── styles.css              # Application styles
-└── index.js                # Application entry point
+│   └── input.json          // JSON document data
+├── App.js                  // Main application component
+├── styles.css              // Application styling
+└── index.js                // Entry point of the application
 ```
 
-## 🎯 Key Components
+## Key Components
 
 ### BlockRenderer
-- Handles all block-level elements (headings, paragraphs, lists, clauses)
-- Manages document structure and nesting
-- Provides fallback rendering for unknown types
+
+* Handles various document elements, including headings, paragraphs, lists, and clauses.
+* Manages the document structure and properly renders nested components.
 
 ### TextWithMarks
-- Processes text formatting (bold, italic, underline)
-- Handles mention elements
-- Manages newline conversion to `<br>` elements
+
+* Processes and applies text formatting such as bold, italic, and underline.
+* Handles rendering of mention elements.
+* Converts newline characters into HTML `<br>` elements.
 
 ### ClauseRenderer
-- Renders numbered clauses with proper indentation
-- Supports nested clause structures
-- Maintains global clause numbering
+
+* Implements hierarchical numbering for clauses.
+* Supports multiple levels of nested clauses with distinct numbering styles.
 
 ### Mention
-- Renders variable text with colored backgrounds
-- Extracts text from JSON children or value properties
-- Designed for future extensibility (editing, color changes)
 
-## 📊 Data Structure
+* Displays dynamic text elements with colored highlights.
+* Configured for easy extension to enable future editing and real-time updates.
 
-The application processes JSON data with the following structure:
+## JSON Data Structure
+
+The application expects JSON data formatted as follows:
 
 ```json
 {
@@ -88,47 +90,41 @@ The application processes JSON data with the following structure:
 }
 ```
 
-## 🎨 Styling Features
+## Styling Features
 
-- Modern typography with system fonts
-- Professional spacing and layout
-- Proper clause indentation and numbering
-- Colored mention backgrounds
-- Responsive design principles
-- Clean, readable formatting
+* Modern, professional typography
+* Clean and consistent spacing and layout
+* Accurate indentation and clause numbering
+* Responsive design to ensure usability across devices
 
-## 🔧 Build & Deploy
+## Build & Deployment
 
-**Development build**:
-```bash
-npm start
-```
+To create a production build:
 
-**Production build**:
 ```bash
 npm run build
 ```
 
-The build folder will contain optimized files ready for deployment.
+The `build` directory will contain optimized assets ready for deployment.
 
-## 🧪 Testing
+## Testing
 
-The application successfully:
-- Renders the complete Service Agreement document
-- Displays proper clause numbering (1, 2, 3, etc.)
-- Shows colored mentions (dates, names, terms)
-- Formats text with bold, italic, and underline
-- Handles nested structures correctly
-- Maintains responsive layout
+The application has been tested and verified to:
 
-## 🚀 Future Enhancements
+* Render complete documents accurately from JSON data.
+* Correctly display hierarchical numbering for clauses and nested clauses.
+* Highlight mentions appropriately.
+* Apply text formatting consistently.
+* Maintain a responsive and accessible layout.
 
-- **Mention Editing**: Click to edit mention values
-- **Color Customization**: Change mention colors
-- **Export Options**: PDF, Word document export
-- **Template System**: Support for multiple contract types
-- **Validation**: Schema validation for JSON input
+## Future Enhancements
 
-## 📝 License
+* Editable mentions and global color management
+* Document export options (PDF, DOC)
+* Support for additional document templates
+* JSON schema validation for input data
+* Real-time collaboration capabilities
 
-This project is created as a take-home assignment demonstrating React development skills and JSON data processing capabilities. 
+## License
+
+This project was developed as part of a technical demonstration of React development skills and data-driven UI rendering.
