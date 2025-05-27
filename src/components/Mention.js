@@ -6,9 +6,7 @@ export default function Mention({ node }) {
   // Render the mention text directly from children or value
   const text = children ? children.map(child => child.text).join('') : value
   
-  // Placeholder for future editing functionality
   const handleMentionClick = () => {
-    // TODO: Implement mention editing
     // This could open a modal, inline editor, or trigger a context update
     console.log(`Edit mention: ${id} (${title}) - Current value: ${text}`)
   }
