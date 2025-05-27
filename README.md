@@ -117,14 +117,6 @@ The application has been tested and verified to:
 * Apply text formatting consistently.
 * Maintain a responsive and accessible layout.
 
-## Future Enhancements
+## Output Screenshots
 
-* Editable mentions and global color management
-* Document export options (PDF, DOC)
-* Support for additional document templates
-* JSON schema validation for input data
-* Real-time collaboration capabilities
-
-## License
-
-This project was developed as part of a technical demonstration of React development skills and data-driven UI rendering.
+image.png
